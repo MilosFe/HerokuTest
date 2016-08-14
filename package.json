@@ -1,0 +1,32 @@
+{
+  "name": "herokutest",
+  "version": "1.0.0",
+  "description": "Testing heroku apps",
+  "engines": {
+    "node": "4.4.2"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TensaZangetsu/HerokuTest.git"
+  },
+  "keywords": [
+    "test",
+    "heroku",
+    "init"
+  ],
+  "author": "Radoman Milos",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TensaZangetsu/HerokuTest/issues"
+  },
+  "homepage": "https://github.com/TensaZangetsu/HerokuTest#readme",
+  "dependencies": {
+    "ejs": "^2.5.1",
+    "express": "^4.14.0",
+    "jade": "^1.11.0"
+  }
+}
