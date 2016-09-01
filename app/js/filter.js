@@ -1,21 +1,14 @@
  angular
           .module('app')
-          .filter('positiveOrNegative', filter);
+          .filter('less', filter);
 
 function filter () {
-               return function (input, crieteria) {
-                    if (!input || !crieteria) return input;
-                    var result = [];
-                    input.forEach(function (value) {
-                         if (crieteria == "positive" && value.grade >= 0) {
-                              result.push(value);
-                         } else if (crieteria == "negative" && value.grade < 0) {
-                              result.push(value);
-                         } else if (crieteria == "all") {
-                              result.push(value);
-                         }
-
-                    })
-                    return result;
+               return function (number) {
+                   var array = [];                  
+                   if (number < 3  ){
+                       array.push(number);
+                   }
+                    
+                    return array; 
                }
           }
