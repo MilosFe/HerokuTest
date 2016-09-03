@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/TensaZangetsu/HerokuTest#readme",
   "dependencies": {
+    "angular": "^1.5.8",
     "body-parser": "^1.15.2",
     "browser-sync": "^2.12.10",
     "del": "^2.2.2",

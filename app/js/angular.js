@@ -9,6 +9,7 @@
 
  function Sentiment(lexicon, $q) {
   var vm = this;
+  vm.title = 'Lexicon Tab';
   vm.words = [];
   vm.formData = {};
   activate();
@@ -32,6 +33,8 @@
   }
   vm.postWords = function(){
    lexicon.postWords(vm.formData);
+   vm.formData = {};
+   getWords();
   }
  }
 
