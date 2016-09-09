@@ -1,0 +1,18 @@
+<div class="lexicon wrapper">
+    <div class="lexiconContainer">
+        <h4> {{vm.title}}</h4>
+        <p>{{vm.message}}</p>
+        <form>
+            <label for="word">Docment Title</label>
+            <input type="text" ng-model='vm.documentData.title'>
+            <label for="word">Document Content</label>
+            <textarea rows="5" ng-model="vm.documentData.tekst">
+            </textarea>
+            <label for="word">Document Overall Grade</label>
+            <input type="text" ng-model='vm.documentData.grade'>
+            <button type="submit" ng-click='vm.evaluate(vm.documentData)'>Evaluate</button>
+            <button type="submit" ng-click='vm.save(vm.documentData)'>Save</button>
+            <button type="submit" ng-click='vm.reset(vm.documentData)'>Reset</button>
+        </form>
+    </div>
+</div>

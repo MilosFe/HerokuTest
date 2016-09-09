@@ -27,6 +27,8 @@
   "homepage": "https://github.com/TensaZangetsu/HerokuTest#readme",
   "dependencies": {
     "angular": "^1.5.8",
+    "angular-route": "^1.5.8",
+    "angularjs-toaster": "^2.0.0",
     "body-parser": "^1.15.2",
     "browser-sync": "^2.12.10",
     "del": "^2.2.2",
@@ -52,6 +54,7 @@
     "jshint-stylish": "^2.2.0",
     "mongodb": "^2.2.7",
     "mongoose": "^4.5.9",
+    "morgan": "^1.7.0",
     "run-sequence": "^1.2.1"
   }
 }

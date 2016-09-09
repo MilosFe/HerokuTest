@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link href='https://fonts.googleapis.com/css?family=Lato:400,700,300' rel='stylesheet' type='text/css'>
-
+    <link rel="stylesheet" href="css/toastr.min.css">
 
 
     <!--build:css css/styles.min.css-->
@@ -22,54 +22,77 @@
     <link rel="stylesheet" href="css/style.css">
     <!-- endbuild -->
     <style>
-
+        .splash {
+            display: none;
+        }
+        
+        [ng-cloak].splash {
+            display: block !important;
+        }
+        
+        .splash {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: white;
+        }
+        
+        .splash h2 {
+            margin: 0;
+            padding: 0;
+            font-size: 4em;
+            color: cornflowerblue;
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -30%);
+        }
 
     </style>
 </head>
-<!--[if lt IE 9]>
-    <script src="js/vendor/html5-3.6-respond-1.4.2.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-    <![endif]-->
 
-<body ng-app="Sentiments">
+<body>
     <header>
         <div class="wrapper">
             <p class="logo">Milos<span>R</span></p>
             <i class="fa fa-bars"></i>
             <nav>
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="#/">Lexicon</a></li>
+                    <li><a href="#/documents">Documents</a></li>
                 </ul>
 
             </nav>
         </div>
     </header>
-    <div class="lexicon wrapper" ng-controller="sentiment as vm">
-        <div class="lexiconContainer">
-            <h4> {{vm.title}}</h4>
-            <form>
-                <label for="word">Word</label>
-                <input type="text" ng-model="vm.formData.word">
-                <label for="word">Grade</label>
-                <input type="text" ng-model="vm.formData.grade">
-                <button type="submit" ng-click="vm.postWords(formData)">Save</button>
-            </form>
-            <ul>
-             <li ng-repeat="word in vm.words">
-                 {{word.word}} {{word.grade}}  
-             </li>
-            </ul>
-        </div>
+
+
+    <div class="splash" ng-cloak="">
+        <h2>Loading</h2>
+    </div>
+    <div ng-view class="view-animate" ng-cloak=''>
     </div>
 
+
     <!--build:js js/main.min.js -->
+
+    <script src="js/vendor/jquery-1.11.2.min.js"></script>
     <script src="js/vendor/angular.min.js"></script>
-    <script src="js/angular.js"></script>
-    <script src="js/lexicon/lexicon.js"></script>
-    <script src="js/lexicon/lexiconDirective.js"></script>
-    <script src="js/vendor/jquery-1.11.2.js"></script>
+    <script src="js/vendor/angular-route.min.js"></script>
+    <script src="js/vendor/toastr.min.js"></script>
+    <script src="js/vendor/angular-animate.min.js"></script>
+    <script src="js/angulr.module.js"></script>
+
+    <script src="js/lexicon/lexiconCtrl.js"></script>
+    <script src="js/lexicon/lexiconRoutes.js"></script>
+    <script src="js/lexicon/lexiconService.js"></script>
+    <script src="js/documents/documentsService.js"></script>
+    <script src="js/documents/documentsCtrl.js"></script>
+    <script src="js/documents/documentsRoutes.js"></script>
+
+
     <script src="js/main.js"></script>
     <script src="js/people/people.js"></script>
     <!-- endbuild -->

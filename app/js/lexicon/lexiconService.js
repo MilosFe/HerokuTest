@@ -6,7 +6,8 @@
  function lexicon($http, $log) {
   var service = {
    getWords: getWords,
-   postWords: postWords
+   postWords: postWords,
+   delWord: delWord
   }
   return service;
 
@@ -20,14 +21,19 @@
   }
 
   function postWords(data){
-    $http.post('/words/word', data)
+   return $http.post('/word', data)
+    .then(sucess)
+    .catch(fail);
+  }
+    function delWord(id){
+   return $http.delete('/word/' + id)
     .then(sucess)
     .catch(fail);
   }
 
 
+  //Success and Error functions   
   function sucess(responose, status, headers, config) {
-   $log.info(responose, status, headers, config)
    return responose.data;
    
   }

@@ -81,6 +81,7 @@ header {
 }
 .lexicon {
     padding-top: 30px;
+    color: #474747;
     .lexiconContainer {
         -webkit-box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.75);
         -moz-box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.75);
@@ -88,22 +89,48 @@ header {
         width: 300px;
         height: 500px;
         padding: 10px;
+        label {
+            display: block;
+            padding: 3px 0px;
+            font-weight: 400;
+        }
         input {
             display: block;
             width: 100%;
+            border-radius: 10px;
+            padding: 1px;
+        }
+        textarea {
+            width: 100%;
+            border-radius: 3px;
+            border-color: $grey;
+            border-style: inset;
         }
         button {
-            margin-top: 10px;
+            margin-top: 15px;
+            background-color: #555555;
+            border: 1px solid white;
+            color: white;
+            padding: 3px 7px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            cursor: pointer;
+            &:hover {
+                background-color: white;
+                color: #555555;
+                border: 1px solid grey;
+            }
         }
         ul {
+            margin-top:10px;    
             list-style: none;
             text-align: center;
-            padding-top: 10px;
-            height: 300px;
-            overflow: auto;
+            height: 250px;
+            overflow: hidden;
+            border: 1px solid rgba( 140, 140, 140, 0.244 );
             li {
                 width: 100%;
-                border: 1px dashed;
                 opacity: 0.7;
             }
         }
@@ -115,4 +142,35 @@ header {
         text-align: center;
         font-style: italic;
     }
+}
+.grey {
+    background: #555555;
+    color: white;
+}
+.view-animate {
+    padding: 10px;
+}
+.view-animate.ng-enter {
+    transition: 0.5s linear all;
+    opacity: 0;
+    margin-left: 50%;
+}
+.view-animate.ng-enter.ng-enter-active {
+    opacity: 1;
+    margin-left: 0%;
+}
+.view-animate.ng-leave.ng-leave-active {
+    margin-left: +50%;
+}
+li.ng-enter {
+    transition: 0.5s linear all;
+    opacity: 0;
+    margin-left: 50%;
+}
+li.ng-enter.ng-enter-active {
+    opacity: 1;
+    margin-left: 0%;
+}
+li.ng-leave.ng-leave-active {
+    margin-left: 50%;
 }

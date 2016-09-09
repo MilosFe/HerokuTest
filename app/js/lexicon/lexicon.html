@@ -1,0 +1,17 @@
+<div class="lexicon wrapper">
+    <div class="lexiconContainer">
+        <h4> {{vm.title}}</h4>
+        <form>
+            <label for="word">Word</label>
+            <input type="text" ng-model="vm.formData.word">
+            <label for="word">Grade</label>
+            <input type="text" ng-model="vm.formData.grade">
+            <button type="submit" ng-click="vm.postWords(formData)">Save</button>
+        </form>
+        <ul>
+            <li ng-repeat="word in vm.words" ng-dblclick="vm.delWord(word._id)" ng-class-even="'grey'">
+                {{word.word}} {{word.grade}} 
+            </li>
+        </ul>
+    </div>
+</div>

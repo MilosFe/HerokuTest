@@ -1,27 +1,39 @@
-var express = require('express');
-var bodyParser = require('body-parser');
-var app = express();
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var Word = mongoose.model('lexicons', {word: String, grade: String});
+var Word = mongoose.model('lexicons', {
+  word: String,
+  grade: Number
+});
 
-app.use(bodyParser.json())
 
 
-app.get('/',  function (request, response) {
-  Word.model('lexicons').find(function (err, doc) {
-    response.send(doc);
+module.exports = function (app) {
+
+  app.get('/words', function (request, response) {
+    Word.model('lexicons').find(function (err, doc) {
+      response.json(doc);
+    });
   });
-});
-app.post('/word',  function (request, response) {
-Word.create({word:request.body.word, grade: request.body.grade}
-            , function(err,doc){
-  console.log("done");
-})
 
-});
+  app.post('/word', function (request, response) {
+    Word.create({
+      word: request.body.word,
+      grade: request.body.grade
+    }, function (err, doc) {
+      Word.model('lexicons').find(function (err, doc) {
+        response.json(doc);
+      });
+    })
 
-
-
-
-module.exports = app;
+  });
+  app.delete("/word/:word_id", function (request, response) {
+    Word.remove({
+      _id: request.params.word_id
+    }, function (err, doc) {
+      if (err) response.send(err);
+      Word.model('lexicons').find(function (err, doc) {
+        response.json(doc);
+      });
+    })
+  })
+};
