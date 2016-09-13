@@ -5,23 +5,25 @@
 
 
  ////////Sentiment Controller
- documentCtrl.$inject = ['documents', 'lexicon', '$q'];
+ documentCtrl.$inject = ['documents', 'lexicon', '$q', '$scope'];
 
- function documentCtrl(documents, lexicon, $q) {
+ function documentCtrl(documents, lexicon, $q, $scope) {
   var vm = this;
   vm.title = "Documents";
   vm.words = {};
-  vm.documentData = {
-   "title": "",
-   "tekst": "",
-   "grade": 0
-  }
+  vm.documentData = {};
   toastr.info("Documents View Active");
 
   //Function for the view
-   vm.save = function(documentData){
-    documents.postDoc(documentData);
-    } 
+  vm.save = function (documentData) {
+   documents.postDoc(documentData);
+  }
+
+  vm.reset = function () {
+   $scope.documentData.$setPristine();
+   return vm.documentData = {};
+   
+  }
 
   vm.evaluate = function (documentData) {
    lexicon.getWords().then(function (data) {

@@ -37,6 +37,7 @@
             height: 100%;
             width: 100%;
             background: white;
+            z-index: 1002;
         }
         
         .splash h2 {
@@ -70,7 +71,7 @@
 
 
     <div class="splash" ng-cloak="">
-        <h2>Loading</h2>
+        <h2>Loading...</h2>
     </div>
     <div ng-view class="view-animate" ng-cloak=''>
     </div>
@@ -89,6 +90,7 @@
     <script src="js/lexicon/lexiconRoutes.js"></script>
     <script src="js/lexicon/lexiconService.js"></script>
     <script src="js/documents/documentsService.js"></script>
+    <script src="js/lexicon/lexiconDirective.js"></script>
     <script src="js/documents/documentsCtrl.js"></script>
     <script src="js/documents/documentsRoutes.js"></script>
 

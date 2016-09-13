@@ -150,6 +150,9 @@ small, .font_small {
 /* ==========================================================================
    Grid
    ========================================================================== */
+/* ==========================================================================
+   Grid
+   ========================================================================== */
 .column {
   position: relative;
   float: left;
@@ -2313,7 +2316,11 @@ header {
   background-color: white;
   border-bottom: 1px solid #8c8c8c;
   height: 5em;
-  box-shadow: 0px 3px 33px 0px rgba(0, 0, 0, 0.75); }
+  box-shadow: 0px 3px 33px 0px rgba(0, 0, 0, 0.75);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1001; }
   header .logo {
     color: #8c8c8c;
     font-weight: bold;
@@ -2375,13 +2382,15 @@ header {
             line-height: 4em; } }
 
 .lexicon {
-  padding-top: 30px;
+  padding-top: 6.875em;
   color: #474747; }
   .lexicon .lexiconContainer {
+    text-align: left;
     box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.75);
     width: 300px;
     height: 500px;
-    padding: 10px; }
+    padding: 10px;
+    margin: 0 auto; }
     .lexicon .lexiconContainer label {
       display: block;
       padding: 3px 0px;
@@ -2415,11 +2424,13 @@ header {
       list-style: none;
       text-align: center;
       height: 250px;
-      overflow: hidden;
+      overflow-y: auto;
+      overflow-x: hidden;
       border: 1px solid rgba(140, 140, 140, 0.244); }
       .lexicon .lexiconContainer ul li {
         width: 100%;
-        opacity: 0.7; }
+        opacity: 0.7;
+        cursor: pointer; }
   .lexicon h4 {
     margin-top: 20px;
     display: block;
@@ -2459,3 +2470,9 @@ li.ng-enter.ng-enter-active {
 
 li.ng-leave.ng-leave-active {
   margin-left: 50%; }
+
+input.ng-dirty, textarea.ng-dirty {
+  background-color: lightblue; }
+
+.info {
+  text-align: left; }

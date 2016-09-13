@@ -1,18 +1,22 @@
-<div class="lexicon wrapper">
-    <div class="lexiconContainer">
-        <h4> {{vm.title}}</h4>
-        <p>{{vm.message}}</p>
-        <form>
-            <label for="word">Docment Title</label>
-            <input type="text" ng-model='vm.documentData.title'>
-            <label for="word">Document Content</label>
-            <textarea rows="5" ng-model="vm.documentData.tekst">
-            </textarea>
-            <label for="word">Document Overall Grade</label>
-            <input type="text" ng-model='vm.documentData.grade'>
-            <button type="submit" ng-click='vm.evaluate(vm.documentData)'>Evaluate</button>
-            <button type="submit" ng-click='vm.save(vm.documentData)'>Save</button>
-            <button type="submit" ng-click='vm.reset(vm.documentData)'>Reset</button>
-        </form>
+<div class="lexicon wrapper row">
+    <div class="column colum-6">
+        <div class="lexiconContainer">
+            <h4> {{vm.title}}</h4>
+            <p>{{vm.message}}</p>
+            <form  name="documentData">
+                <label for="word">Docment Title</label>
+                <input type="text" ng-model='vm.documentData.title' required>
+                <label for="word">Document Content</label>
+                <textarea rows="5" ng-model="vm.documentData.tekst" ng-required></textarea>
+                <label for="word">Document Overall Grade</label>
+                <input ng-disabled="true" type="text" ng-model='vm.documentData.grade' >
+                <button  ng-disabled="vm.documentData.tekst.$invalid" ng-click='vm.evaluate(vm.documentData)'>Evaluate</button>
+                <button type="submit" ng-disabled="documentData.$invalid" ng-click='vm.save(vm.documentData)'>Save</button>
+                <button  ng-click='vm.reset(vm.documentData)'>Reset</button>
+            </form>
+        </div>    
+    </div>
+    <div class="column column-6">
+        <pre>{{documentData | json }}</pre>
     </div>
 </div>

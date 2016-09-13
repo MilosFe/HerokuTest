@@ -5,9 +5,9 @@
 
 
  ////////Sentiment Controller
- Sentiment.$inject = ['lexicon', '$q'];
+ Sentiment.$inject = ['lexicon', '$q','$scope'];
 
- function Sentiment(lexicon, $q) {
+ function Sentiment(lexicon, $q, $scope) {
   var vm = this;
   vm.title = "Lexicon tab";
   vm.words = [];
@@ -40,6 +40,7 @@
    lexicon.postWords(vm.formData).then(function (data) {
     vm.words = data;
      vm.formData = {};
+    $scope.formData.$setPristine();
      toastr.info('Word inserted into DB')
    })
   }

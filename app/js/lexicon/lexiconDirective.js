@@ -1,12 +1,12 @@
 (function(){
     'use strict';
      angular.module('Sentiments')
-  .directive('lexiconing', lexiconing);
+  .directive('upustvo', upustvo);
     
-    function lexiconing(){
+    function upustvo(){
         return {
-            restrict: 'CEA',
-            template: '<h1> Milos</h1>'
+            restrict: 'EA',
+            templateUrl: 'js/lexicon/upustvo.html'
         }
     }
 })()

@@ -26,14 +26,14 @@
   //Success and Error functions   
   function sucess(responose, status, headers, config) {
    return responose.data;
-   
+
   }
 
   function fail(responose, status, header) {
    $log.warn(responose, status, header);
   }
 
-  
+
   function evaluate(doc, words) {
 
    var str = doc.tekst.replace(/[^\w\s]|_/g, "")
